@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocuMind AI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-container">
+    <aside class="sidebar">
+        <div class="sidebar-top">
+            <div class="logo">DocuMind</div>
+            <label for="file-upload" class="upload-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                <span>Upload PDF</span>
+                <input type="file" id="file-upload" accept=".pdf" hidden>
+            </label>
+        </div>
+
+        <div id="upload-status" class="upload-card" style="display:none;">
+            <div class="upload-info">
+                <span id="file-name-uploading">document.pdf</span>
+                <span id="percent">0%</span>
+            </div>
+            <div class="progress-container"><div id="bar-fill"></div></div>
+            <div id="status-text">Uploading...</div>
+        </div>
+
+        <div class="sidebar-label">Your Library</div>
+        <div id="file-list" class="file-list"></div>
+    </aside>
+
+    <main class="chat-main">
+        <div id="chat-output" class="chat-viewport">
+            <div class="welcome-screen">
+                <h1>How can I help with your documents?</h1>
+                <p>Upload a PDF to extract insights, summarize text, or ask specific questions.</p>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <div class="input-wrapper">
+                <input type="text" id="user-input" placeholder="Ask anything about your files..." autofocus>
+                <button id="send-btn" disabled>
+                    <span id="btn-icon">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 11L12 6L17 11M12 18V7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

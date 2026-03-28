@@ -1,0 +1,70 @@
+:root {
+    --bg-sidebar: #f7f7f8;
+    --bg-main: #ffffff;
+    --text-main: #1d1d1f;
+    --text-muted: #6e6e73;
+    --accent: #000000;
+    --border: #e5e5e7;
+    --user-bubble: #f4f4f7;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg-main); color: var(--text-main); height: 100vh; overflow: hidden; }
+
+.app-container { display: flex; height: 100vh; }
+
+/* Sidebar */
+.sidebar { width: 280px; background: var(--bg-sidebar); border-right: 1px solid var(--border); padding: 20px; display: flex; flex-direction: column; }
+.logo { font-weight: 700; font-size: 18px; margin-bottom: 24px; padding-left: 4px; }
+.sidebar-label { font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--text-muted); margin: 30px 0 10px 4px; letter-spacing: 0.05em; }
+
+.upload-btn {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 12px; background: #fff; border: 1px solid var(--border); border-radius: 12px;
+    cursor: pointer; font-size: 14px; font-weight: 500; transition: 0.2s;
+}
+.upload-btn:hover { background: #f0f0f2; border-color: #d2d2d7; }
+
+/* Upload Card & Progress */
+.upload-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 12px; margin-top: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+.upload-info { display: flex; justify-content: space-between; font-size: 12px; font-weight: 600; margin-bottom: 8px; }
+.progress-container { height: 4px; background: #eee; border-radius: 2px; overflow: hidden; }
+#bar-fill { height: 100%; width: 0%; background: var(--accent); transition: width 0.3s ease; }
+#status-text { font-size: 10px; color: var(--text-muted); margin-top: 6px; text-transform: uppercase; }
+
+.file-item { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px; background: #fff; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 6px; font-size: 13px; }
+
+/* Chat Main */
+.chat-main { flex: 1; display: flex; flex-direction: column; position: relative; }
+.chat-viewport { flex: 1; overflow-y: auto; padding: 40px 20px; scroll-behavior: smooth; }
+.msg-container { max-width: 760px; margin: 0 auto; width: 100%; display: flex; flex-direction: column; gap: 24px; }
+
+.welcome-screen { max-width: 600px; margin: 15vh auto; text-align: center; }
+.welcome-screen h1 { font-size: 32px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.02em; }
+.welcome-screen p { color: var(--text-muted); font-size: 17px; }
+
+.msg { max-width: 85%; line-height: 1.6; font-size: 16px; word-wrap: break-word; }
+.msg.user { align-self: flex-end; background: var(--user-bubble); padding: 12px 20px; border-radius: 20px 20px 4px 20px; }
+.msg.bot { align-self: flex-start; color: #111; padding: 0 40px; }
+
+/* Thinking/Loader State */
+.thinking { color: var(--text-muted); font-style: italic; font-size: 14px; margin-top: 8px; }
+
+/* Input Wrapper */
+.input-area { padding: 20px 0 40px 0; background: linear-gradient(transparent, #fff 30%); }
+.input-wrapper {
+    max-width: 760px; margin: 0 auto; display: flex; align-items: center; gap: 12px;
+    background: #fff; border: 1px solid #d2d2d7; padding: 10px 14px; border-radius: 26px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: border 0.2s;
+}
+.input-wrapper:focus-within { border-color: #888; }
+input[type="text"] { flex: 1; border: none; outline: none; font-size: 16px; padding: 4px; background: transparent; }
+
+button#send-btn {
+    width: 36px; height: 36px; border: none; border-radius: 50%;
+    background: #e5e5e7; color: #fff; cursor: not-allowed;
+    display: flex; align-items: center; justify-content: center; transition: 0.2s;
+}
+button#send-btn.active { background: #000; cursor: pointer; }
+button#send-btn.stop-mode { background: #000; border-radius: 8px; cursor: pointer; }
+.footer-note { text-align: center; font-size: 11px; color: var(--text-muted); margin-top: 12px; }

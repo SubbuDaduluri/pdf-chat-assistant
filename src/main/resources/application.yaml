@@ -1,0 +1,43 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: pdf-chat-assistant
+
+  ai:
+    # Ollama (LOCAL LLM)
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          model: llama3
+      embedding:
+        options:
+          model: nomic-embed-text   # good embedding model
+
+    # OpenAI (OPTIONAL)
+    openai:
+      api-key: OPENAI_API_KEY   # use env variable
+      chat:
+        options:
+          model: gpt-4o-mini
+      embedding:
+        enabled: false
+
+    # Vector DB (Qdrant)
+    vectorstore:
+      qdrant:
+        host: localhost
+        port: 6334
+        collection-name: pdf_docs
+        initialize-schema: true
+
+# Custom App Config
+app:
+  llm:
+    provider: ollama
+  rag:
+    top-k: 5
+    chunk-size: 1000
+    chunk-overlap: 200
